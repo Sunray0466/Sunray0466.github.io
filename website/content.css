@@ -1,0 +1,28 @@
+.left   { text-align: left;   }
+.center { text-align: center; }
+.right  { text-align: right;  }
+
+.page > h1 {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: solid 2px;
+  border-image: linear-gradient(to top,#a07, #607, #60a) 0 1 100%;
+}
+.page > p {
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+.grid-dataset { 
+  display: grid; 
+  grid-template-columns: auto auto;
+  width: 200px;
+  border: 1px solid #222;
+
+}
+.grid-dataset > div {
+  border: 1px solid #222;
+  padding: 5px;
+  text-align: center;
+  font-size: 20px;
+}

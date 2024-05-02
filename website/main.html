@@ -1,0 +1,85 @@
+<head>
+  <link rel="stylesheet" href="backend-menu.css">
+  <link rel="stylesheet" href="backend-page.css">
+  <link rel="stylesheet" href="content.css">
+  <style>
+    * {
+      margin: 0;
+      border: 0px;
+      overflow: hidden;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <fieldset id="menu">
+    <span id="menu-top">
+      <h1>Content</h1>
+    </span>
+    <div><input type="radio" id="menu0" class="menu-radio" name="menu-tab" checked><label class="menu-label" for="menu0">Overview</label></div>
+    <div><input type="radio" id="menu1" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu1">Dataset</label></div>
+    <div><input type="radio" id="menu2" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu2">Graph</label></div>
+    <div><input type="radio" id="menu3" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu3">Text analysis</label></div>
+    <div><input type="radio" id="menu4" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu4">Conclusion</label></div>
+    <span id="menu-bottom"></span>
+  </fieldset>
+  <div id="content">
+    <div class="page">
+      <h1>Overview: Lorem ipsum</h1>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      <h1 class="center">Why?</h1>
+      <p class="center">Why not?</p>
+      <h1>Facts:</h1>
+      <p class="right" style="--slide-from: translateX(-900px);--animation-speed:1s;">Commonly used as a test for text layout</p>
+    </div>
+    <div class="page">
+      <h1>Dataset: An empty screen</h1>
+      <p>Just an empty screen</p>
+      <div class="grid-dataset" style="--slide-from: translateX(900px); --animation-speed:0.1s;">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+    </div>  
+    <div class="page">
+      <h1>Graph</h1>
+      <p>Undirected, directed, bipartite, backbone, weighted...</p>
+    </div>
+    <div class="page">
+      <h1>Text analysis</h1>
+      <h2>Text analysis</h2>
+      <h3>Text analysis</h3>
+      <h4>Text analysis</h4>
+      <h5>Text analysis</h5>
+      <p>Text analysis</p>
+      <p style="font-size:20px;">Text analysis</p>
+      <p style="font-size:30px;">Text analysis</p>
+      <p style="font-size:40px;">Text analysis</p>
+      <p style="font-size:50px;">Text analysis</p>
+      <p style="font-size:60px;">Text analysis</p>
+      <p style="font-size:70px;">Text analysis</p>
+      <p style="font-size:80px;">Text analysis</p>
+      <p style="font-size:90px;">Text analysis</p>
+      <p style="font-size:100px;">Text analysis</p>
+      <p style="font-size:200px;">Text analysis</p>
+    </div>
+    <div class="page">
+      <h1 class="center">Conclusion</h1>
+      <p class="center">We deserve 12! :D</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>

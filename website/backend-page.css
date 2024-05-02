@@ -1,0 +1,32 @@
+@keyframes slide-in {
+  from {transform: var(--slide-from); opacity: 0;}
+  to   {transform: translateX(0px) translateY(0px); opacity: 1;}
+}
+body:has(#menu > div:nth-of-type(1) > input:checked) > #content > .page:nth-child(1) > * { animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
+body:has(#menu > div:nth-of-type(2) > input:checked) > #content > .page:nth-child(2) > * { animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
+body:has(#menu > div:nth-of-type(3) > input:checked) > #content > .page:nth-child(3) > * { animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
+body:has(#menu > div:nth-of-type(4) > input:checked) > #content > .page:nth-child(4) > * { animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
+body:has(#menu > div:nth-of-type(5) > input:checked) > #content > .page:nth-child(5) > * { animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
+
+#content {
+  width: 100%;
+  overflow-y: auto;
+  position: relative;
+  --animation-speed: 0.3s;
+  --delay: 0.3s;
+  --slide-from: translateY( 80px);
+  --slide-to:   translateY(-80px);
+}
+.page {
+  padding: 100px 60px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+}
+.page > * {
+  /* transition: transform var(--animation-speed) ease-in-out var(--timing), opacity var(--animation-speed) ease-in-out var(--timing); */
+  transition: transform var(--animation-speed) ease-in-out, opacity var(--animation-speed) ease-in-out;
+  transform: var(--slide-to);
+  opacity: 0;
+}
