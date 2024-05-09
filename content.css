@@ -3,14 +3,26 @@
 .right  { text-align: right;  }
 
 .page > h1 {
-  margin-bottom: 20px;
   padding: 10px;
+  margin-bottom: 20px;
   border-bottom: solid 2px;
   border-image: linear-gradient(to top,#a07, #607, #60a) 0 1 100%;
 }
-.page > p {
+.page > p:not(.default) {
+  margin: 0px 60px;
   padding-bottom: 15px;
   font-size: 20px;
+  white-space: pre-line;
+  /* text-indent: 20px; */
+  &::first-letter {
+    initial-letter: 2 1;
+    padding-right: 2px;
+    color: #607;
+  }
+}
+
+.page > div {
+  padding: 30px 30px 45px;
 }
 
 .grid-dataset { 
