@@ -38,7 +38,7 @@
       <p>The goal of our investigation was to find out more about the movie industry than what is currently known by the general public. 
         This has been done by analyzing data collected from the movie database (TMDB) <a href="https://www.themoviedb.org/">https://www.themoviedb.org/</a>.
         Data collected and analyzed includes movies and their summaries, the crews producing the movies and the actors acting in them. 
-        We aimed to explore the connections between the movies, crew and cast using a bipartite network. 
+        We aimed to explore the connections between the movies genres and production crew/cast using a bipartite network. 
         We aim to discover the figures who are the most diverse in genres, and how much an actor sticks to a genre.
         Then, to get a greater understanding of the movie's natural communities, their genres, a textual analysis has been performed on this community partition.</p>
 
@@ -46,69 +46,15 @@
     </div>
     <div class="page">
       <h1>Dataset: movies</h1>
-      <p>Our datasets has been retrieved from <strong>themoviedb-api</strong> (<a href="https://api.themoviedb.org">api.themoviedb.org</a>) and consist of two different datasets:</p>
-      <ul>
-        <li>The first being the movie dataset which contains information about movies from 2000-2024 that are available in English.</li>
-        <li>The second is the 'people' dataset which holds information about the cast and crew that have worked on these movies.</li>
-      </ul>
-      <p>These datasets can later be linked together based on the movie ID's</p>
-      
-      <h2>Fetching:</h2>
-      <p>For fetching our movie ID's, the following criterias had been set:</p>
-      <ul>
-        <li>has an ID</li>
-        <li>is released between years 2000 to 2024</li>
-        <li>available in the English language</li>
-      </ul>
-      <p>After retrieving these ID's, the full movie dataset was requested.</p>
-      <p>For our 'people' dataset, the requirement was that they had worked on a movie with an ID listed in our movie dataset as well as had their own ID.</p>
+      <p>Our datasets have been retrieved from themoviedb as we have evaluated them to be the most reliable source for our research.
+        We have two different datasets that can be linked to each other using the movie ID:</p>
+      <ol>
+        <li>The movie dataset contains information about movies from 2000-2024 that are available in English. The cleaned dataset consists of 199.897 movies
+        There is a lot of information available on each of the movies including the title, original_language, genre, cast, crew and many more.</li>
+        <li>The 'member' dataset contains information about the cast and crew working on the listed movies. The cleaned dataset holds 1.018.104 people, 
+          including information about their name, known department, popularity, and the movie IDs they have worked in.</li>
+      </ol>
 
-      <h2>Preprocessing</h2>
-      <p>For our movie dataset, the following preprocessing were performed:</p>
-      <ul>
-        <li> remove adult field due to inconsitent info </li>
-        <li> remove fields which were of no interest (backdrop, poster, homepage etc.) </li>
-        <li> reduce redundant informations and combine fields (genres + genre-ID's, production country etc.) </li>
-      </ul>
-      <p>For our people dataset:</p>
-      <ul>
-        <li> remove fields that were not interesting for our investigation (like profile_path, cast_id, etc.) </li>
-        <li> add field with movie ID's they have worked on before </li>
-        <li> combine their movie departments into one field </li>
-      </ul>
-      <p>It should also be mentioned that the cast and crew had some overlapping fields, ID's or departments which held similar data in both datasets 
-        and have been combined for this final large dataset. It can be said that the crew and cast differentiation in TMDb has not been 
-        made strict.
-      </p>
-
-      <h2>Final dataset</h2>
-      <p>The movie dataset consists of 199.897 movies and contains these major fields:</p>
-      <ul>
-        <li> title </li>
-        <li> original_language </li>
-        <li> genre </li>
-        <li> cast </li>
-        <li> crew </li>
-      </ul>
-      <p>The people dataset consist of 1.018.104 peoples and contains these major fields </p>
-      <ul>
-        <li> name </li>
-        <li> known_department </li>
-        <li> popularity </li>
-        <li> list of movie ID worked on before</li>
-      </ul>
-      <!-- <div class="grid-dataset" style="--slide-from: translateX(900px); --animation-speed:0.1s;">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-      </div> -->
     </div>  
     <div class="page">
       <h1>Graph</h1>
@@ -166,16 +112,8 @@
     </div>
     <div class="page">
       <h1>Data download </h1>
-      <!-- <ul>
-        <li><a href="filtered_data/final_cast_data_with_movie_list.json " download>final_cast_data_with_movie_list.json </a></li>
-        <li><a href="filtered_data/final_crew_data_with_movie_list.json " download>final_crew_data_with_movie_list.json </a></li>
-        <li><a href="filtered_data/final_movie_data.json "                download>final_movie_data.json                </a></li>
-        <li><a href="filtered_data/final_people_movie_data.json "         download>final_people_movie_data.json         </a></li>
-        <li><a href="filtered_data/movie_genres.json "                    download>movie_genres.json                    </a></li>
-        <li><a href="filtered_data/production_companies.json "            download>production_companies.json            </a></li>
-        <li><a href="filtered_data/production_countries.json "            download>production_countries.json            </a></li>
-        <li><a href="filtered_data/spoken_languages.json"                 download>spoken_languages.json                </a></li>
-      </ul> -->
+      <p class="default">From <a href="https://dtudk-my.sharepoint.com/:f:/g/personal/s233304_dtu_dk/EuRQUAGWJXpHh0ibWie4JT8BxN6fq4rSVlA_x_VEggqehw?e=kyvxw9">OneDrive</a> (only for people affiliated with DTU)</p>
+
     </div>
   </div>
   <script src="script.js"></script>

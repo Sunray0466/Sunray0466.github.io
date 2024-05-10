@@ -31,20 +31,24 @@
   /* white-space: pre-line; */
   text-align: justify;
   /* text-indent: 20px; */
-  &:first-of-type:first-letter {
+  &:not(.default):first-letter {
     -webkit-initial-letter: 2 1;
     initial-letter: 2 1;
     padding-right: 3px;
     color: #607;
   }
 }
-.page > ul {
+.page > ul, .page > ol {
   margin: 0px 60px;
   padding-bottom: 15px;
   font-size: 20px;
   text-align: justify;
-
   list-style-position: inside;
+  & > li {
+    text-indent: -22px;
+    padding-left: 22px;
+    padding-bottom: 10px;
+  }
 }
 
 .page > div {
