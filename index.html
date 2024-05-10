@@ -20,42 +20,58 @@
     <span id="menu-top">
       <h1>Content</h1>
     </span>
-    <div><input type="radio" id="menu0" class="menu-radio" name="menu-tab" checked><label class="menu-label" for="menu0">Introduction</label></div>
-    <div><input type="radio" id="menu1" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu1">Dataset</label></div>
-    <div><input type="radio" id="menu2" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu2">Graph</label></div>
-    <div><input type="radio" id="menu3" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu3">Text analysis</label></div>
-    <div><input type="radio" id="menu4" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu4">Conclusion</label></div>
-    <div><input type="radio" id="menu5" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu5">Afterthoughts</label></div>
-    <div><input type="radio" id="menu6" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu6">Download</label></div>
+    <div><input type="radio" id="menu0" class="menu-radio" name="menu-tab" checked><label class="menu-label" for="menu0">About</label></div>
+    <div><input type="radio" id="menu1" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu1">Graph</label></div>
+    <div><input type="radio" id="menu2" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu2">Text analysis</label></div>
+    <div><input type="radio" id="menu3" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu3">Conclusion</label></div>
+    <div><input type="radio" id="menu4" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu4">Afterthoughts</label></div>
+    <div><input type="radio" id="menu5" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu5">Download</label></div>
     <span id="menu-bottom"></span>
   </fieldset>
   <div id="content">
     <div class="page">
-      <h1 class="center">Introduction</h1>
-      <h3 class="center">This is the project submission for the course 02467: <br> computational social science (spring)</h3>
-      <h3 class="center">Group 15: s233304, s214592, s204133</h3>
       <h1 class="center">About this project</h1>
-      <p>The goal of our investigation was to find out more about the movie industry than what is currently known by the general public. 
-        This has been done by analyzing data collected from the movie database (TMDB) <a href="https://www.themoviedb.org/">https://www.themoviedb.org/</a>.
-        Data collected and analyzed includes movies and their summaries, the crews producing the movies and the actors acting in them. 
-        We aimed to explore the connections between the movies genres and production crew/cast using a bipartite network. 
-        We aim to discover the figures who are the most diverse in genres, and how much an actor sticks to a genre.
-        Then, to get a greater understanding of the movie's natural communities, their genres, a textual analysis has been performed on this community partition.</p>
+      <h3 class="center">This is the project submission for the course 02467: <br> computational social science (spring)</h3>
+      <h3 class="center">Group 15: <br>s233304 <br>s214592 <br>s204133</h3>
+      <h1 class="center">Questions</h1>
+      <h4>The central idea behind your project</h4>
+      <p>In our project, we wish to deepen our understanding of the movie industry and the people who work in it. We aim to further our understanding 
+      of what movie genres are popular with the most central figures in the industry and understand what terms and descriptive words make up the summaries of the movies.</p>
+      
+      <h4>What is the idea?</h4>
+      <p>The main idea is to create a network of movies and crew by collecting data about a lot of movies and then collecting data about the crews that worked on those same movies. A network can then be constructed based on what crew and actors have worked in what movies. The analysis will consist of centrality on a weighted bipartite network of movie/crew connections and centrality of the crew. Text analysis will be carried out on the overview of the movies, mainly focusing on TF-IDF.</p>
+      
+      <h4>Why is it interesting?</h4>
+      <p>The movie industry is one of the most well-known industries in the world with some of the most famous people. Additionally, there are more people than just the actors important in creating movies. We will call this combination of cast and crew ‘members’. Although some members are well known, the network behind all of the ‘entertainment magic’ is not as public.</p>
+      <p class="default">Actress Elizabeth Stenmoen talks about the importance of such a network on her LinkedIn, mentioning: “In an industry that thrives on collaboration, it’s not just about who you know, but who knows you. [...] Building genuine relationships with casting directors, producers, fellow actors, and others in the industry creates a safety net. When someone vouches for an actor’s talent or work ethic, they are more likely to be considered for roles, even if they might not fit the initial part for which they auditioned.”  (https://www.linkedin.com/pulse/importance-networking-entertainment-industry-elizabeth-stenmoen/)</p>
+      <p class="default">Exploring central figures and differences between the movie genres might be interesting to people to find the people they have to target while networking to potentially have an easier entry into this industry.</p>
 
-      <!-- <p class="right" style="--slide-from: translateX(-900px);--animation-speed:1s;">Commonly used as a test for text layout</p> -->
-    </div>
-    <div class="page">
-      <h1>Dataset: movies</h1>
-      <p>Our datasets have been retrieved from themoviedb as we have evaluated them to be the most reliable source for our research.
-        We have two different datasets that can be linked to each other using the movie ID:</p>
+      <h4>Which datasets did you need to explore the idea?</h4>
+      <p>Our dataset needed to include information about movies, their genres and their descriptions, as well as information about the people who have been working on creating such.</p>
+      
+      <h4>How did you download them?</h4>
+      <p>Our datasets have been retrieved from themoviedb using their publicly available API. This source has been deemed the most reliable and holds a lot of information, nevertheless, it still has some drawbacks, most importantly that bulk requests are not available and the movie and cast information had to be requested one by one.</p>
+      <p class="default">Overall, we have gathered information about movies from 2000 to 2024 with the original language being English. Note: In the description of TMDb it is explained, that the data has been added back to 2008. However, we have realised that there is also more information available before this date and have tried to collect as much of it as possible.</p>
+      <p class="default">First, general information about the movies based on their release date and their original language (English) has been gathered. After filtering this data, mainly removing movies flagged with ‘adult’, more information has been gathered for each of them. Next, the cast and crew have been requested. Finally, the cast and crew have been processed, including creating a list of movies the person has worked on.</p>
+      <p class="default">We have two main datasets that can be linked using the movie ID:</p>
       <ol>
         <li>The movie dataset contains information about movies from 2000-2024 that are available in English. The cleaned dataset consists of 199.897 movies
-        There is a lot of information available on each of the movies including the title, original_language, genre, cast, crew and many more.</li>
+          There is a lot of information available on each of the movies including the title, original_language, genre, cast, crew and many more.</li>
         <li>The 'member' dataset contains information about the cast and crew working on the listed movies. The cleaned dataset holds 1.018.104 people, 
           including information about their name, known department, popularity, and the movie IDs they have worked in.</li>
       </ol>
 
-    </div>  
+      <h4>What is the network you will be analyzing?</h4>
+      <p>The network is a bipartite network consisting of connections between movies and their production crew and cast. The network is structured such that each node represents either a movie or a member of the production crew or cast, with edges indicating the participation of the crew or cast in the movie. This configuration allows for an exploration of collaborative relationships within the film industry.</p>
+      <p class="default">The network consists of 55.037 nodes and 131.446 edges. To understand the potential scope of connection in this network, we calculated the maximum number of edges if every possible pair of nodes were connected: 1.514.508.166, being adjusted as the network is bipartite. The question we wanted to answer with this analysis was: <strong>What movie genres are the most populated with the central figures in the movie industry?</strong></p>
+      
+      <h4>What is the text you will be analyzing?</h4>
+      <p>We will be analysing the overview of the movies for each genre to provide insights into the differences and similarities between them. The question we wanted to answer with this analysis was: <strong>How do linguistic features in movie overviews vary by movie genre?</strong></p>
+      
+      <h4>How will you tie the two together?</h4>
+      <p>The two are tied together through the analysis of the network’s natural community partitions - the movie genres. While the network analysis consists of investigating actors and crew within movie genres, the textual analysis investigates the linguistic and semantic differences between the overviews of different movie genres, giving a combined deeper understanding of the different genres, which are the network communities.</p>
+
+    </div>
     <div class="page">
       <h1>Graph</h1>
       <p>By connecting movie genres with movie crew and cast (refered to members in this work) a bipartite graph can be extracted, 
