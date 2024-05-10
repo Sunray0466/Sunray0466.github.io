@@ -20,7 +20,7 @@
     <span id="menu-top">
       <h1>Content</h1>
     </span>
-    <div><input type="radio" id="menu0" class="menu-radio" name="menu-tab" checked><label class="menu-label" for="menu0">Overview</label></div>
+    <div><input type="radio" id="menu0" class="menu-radio" name="menu-tab" checked><label class="menu-label" for="menu0">Introduction</label></div>
     <div><input type="radio" id="menu1" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu1">Dataset</label></div>
     <div><input type="radio" id="menu2" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu2">Graph</label></div>
     <div><input type="radio" id="menu3" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu3">Text analysis</label></div>
@@ -29,19 +29,41 @@
   </fieldset>
   <div id="content">
     <div class="page">
-      <h1>Overview: Lorem ipsum</h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-      <h1 class="center">Why?</h1>
-      <p class="center">Why not?</p>
-      <h1>Facts:</h1>
+      <h1 class="center">Introduction</h1>
+      <h2 class="center">This is the project submission for the course 02467: <br> computational social science (spring)</h2>
+      <h3 class="center">Group 15: s....</h3>
+      <p>The goal of our investigation was to find out more about the entertainment industry than what is currently known by the general public.</p>
+
       <!-- <p class="right" style="--slide-from: translateX(-900px);--animation-speed:1s;">Commonly used as a test for text layout</p> -->
     </div>
     <div class="page">
-      <h1>Dataset: An empty screen</h1>
-      <p>Just an empty screen</p>
-      <div class="grid-dataset" style="--slide-from: translateX(900px); --animation-speed:0.1s;">
+      <h1>Dataset: movies</h1>
+      <p>Our datasets has been retrieved from <strong>themoviedb</strong>(<a href="https://api.themoviedb.org">api.themoviedb.org</a>) and consist of two different datasets:</p>
+      <ul>
+        <li>The first being the movie dataset which contains information about movies from 2000-2024 that are available in English.</li>
+        <li>The second is the 'people' dataset which holds information about the cast and crew that have worked on these movies.</li>
+      </ul>
+      <p>These datasets can later be linked together based on the movie ID's</p>
+      
+      <h3>Fetching:</h3>
+      <p>For fetching our movie ID's, the following criterias had been set:</p>
+      <ul>
+        <li>has an ID</li>
+        <li>is released between years 2000 to 2024</li>
+        <li>available in the English language</li>
+      </ul>
+      <p>After retrieving these ID's, the full movie dataset was requested.</p>
+      <p>For our 'people' dataset, the requirement was that they had worked on a movie with an ID listed in our movie dataset.</p>
+
+      <h3>Preprocessing</h3>
+      <p>After fecthing our data was done, a preprocessing was performed with these criterias:</p>
+      <ul>
+        <li>remove adult due to inconsitent info </li>
+        <li>columns which were of no interest (like backdrop, poster, homepage etc.) </li>
+      </ul>
+      <p></p>
+
+      <!-- <div class="grid-dataset" style="--slide-from: translateX(900px); --animation-speed:0.1s;">
         <div>1</div>
         <div>2</div>
         <div>3</div>
@@ -52,25 +74,43 @@
         <div>8</div>
         <div>9</div>
         <div>10</div>
-      </div>
+      </div> -->
     </div>  
     <div class="page">
       <h1>Graph</h1>
-      <div class="center"><img src="imgs/graph_custom.png" alt="Movie graph" width="1000px" height="700px" style="object-fit: cover;"></div>
-      <p>Undirected, directed, bipartite, backbone, weighted...</p>
+      <p>By connecting movie genres with movie crew and cast (refered to members in this work) a bipartite graph can be extracted, 
+        with weights equal to number of movies a member has worked on before, which contains a given genre. As movie can have multiple genres, 
+        a lot of members have worked in a few genre once. 
+        We therefore apply a threshold level of minimum 5 movies which had the same genre in before an edge can be established. </p>
+      <div class="center"><img src="imgs/graph_custom.png" alt="Bipartite graph with genre and member" width="1100px" height="700px" style="object-fit: cover;"></div>
+      <p>The graph contains in total of 55037 nodes where 55018 are members and 19 are genres. Genres can be found in the red ring 
+        and members are given color based on their main genre aka. genre with highest weight. Members who only have worked with a single genre 
+        are placed outside of the red ring with their corresponding genre and placed closer to the label the higher their weights are. 
+        The documentary genre has a lot of members who has only been working with this genre multiple times whereas the war genre does not have any member with a single genre. 
+        Members who have worked on multiple genres are placed inside the red ring, with their positions skewed towards mostly their main genre.
+      </p>
+      <p>Furthermore the 10 members with highest closeness centrality scores are highlighted as squares while eigenvalue centrality members are 
+        highlighted as triangles. Most of the closeness members have drama as their main genre with comedy being second and could indicate multiple options. 
+        Either these genres are often combined other genres, members enjoy these or they are easier to work with and make movies with. 
+        The eigenvalue members are either drama or comedy, showing that these genres are also quite important for the members as well and may be why they joined the film industry.
+      <!-- <p>By creating a random network with same edge probability, we get the following distribution over degrees:</p>
+      <div class="center"><img src="imgs/random_distribution.png" alt="Result of random distribution analysis" width="1000px"></div>
+      <p>The random distribution overlaps with our distribution at the beginning, but our distribution contains way more nodes with high degrees, indicating that members 
+        either work in different genres  </p> -->
+
     </div>
     <div class="page">
       <h1>Text analysis</h1>
-      <p> Since we have summaries of each movie in the "overview" column, it is possible to perform a textual analysis on this data.
+      <p> Since we have summaries of each movie in the "overview" column, it is possible to perform a textual analysis on this data. 
         We can achieve 19 different communities within the data by seperating the movies by genre, and treating all the movies in the same genre as a seperate community.
         Since there are 11 genres with less than 1000 movies, these will be filtered out since their contribution to the inverse document frequency across the communities will be minimal.
-        This leaves 8 genres: "Comedy", "Drama", "Thriller", "Documentary", "Music", "Animation", "Horror" and "Science Fiction".
-        Combining and tokenizing the overviews of every movie within these genres yields a list of tokens describing the genre.
+        This leaves 8 genres: "Comedy", "Drama", "Thriller", "Documentary", "Music", "Animation", "Horror" and "Science Fiction". </p>
+      <p> Combining and tokenizing the overviews of every movie within these genres yields a list of tokens describing the genre.
         The tokens have been stemmed using the stemmer from the nltk python package, which uses regular expressions to filter out part of the terms.
         Once these lists of tokens were achieved, the term frequency for each genre could be calculated, as well as the overall inverse document frequency.
         With the term frequency and inverse document frequency in hand, it was possible to calculate TF-IDF scores for each genre.
         In the below figure a wordcloud is shown for each genre, depicting the 10 terms within each genre with the highest TF-IDF.</p>
-      <div class="center"><img src="imgs/tf_idf_wordcloud.png" alt="Wordcloud over each genre" width="1000"></div>
+      <div class="center"><img src="imgs/tf_idf_wordcloud.png" alt="Wordcloud over each movie genre" width="1000"></div>
       <p> The wordclouds showcase both the advantages and disadvantages of TF-IDF. Genres like "Comedy", "Horror" and "Science Fiction" have terms
         that are clearly descriptive of the genre to anyone who knows them. However, "Thriller" and "Documentary" are not as clear.
         They seem to be populated by rare names in specific movies that appear many times in that single movie's specific overview, since these unique names will be very rare across all docuemnts.

@@ -8,17 +8,31 @@
   border-bottom: solid 2px;
   border-image: linear-gradient(to top,#a07, #607, #60a) 0 1 100%;
 }
-.page > p:not(.default) {
+.page > h2, .page > h3 {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.page > p {
   margin: 0px 60px;
   padding-bottom: 15px;
   font-size: 20px;
-  white-space: pre-line;
+  /* white-space: pre-line; */
+  text-align: justify;
   /* text-indent: 20px; */
-  &::first-letter {
+  &:first-of-type:first-letter {
+    -webkit-initial-letter: 2 1;
     initial-letter: 2 1;
-    padding-right: 2px;
+    padding-right: 3px;
     color: #607;
   }
+}
+.page > ul {
+  margin: 0px 60px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  text-align: justify;
+
+  list-style-position: inside;
 }
 
 .page > div {
