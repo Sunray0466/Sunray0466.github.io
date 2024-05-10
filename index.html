@@ -25,27 +25,35 @@
     <div><input type="radio" id="menu2" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu2">Graph</label></div>
     <div><input type="radio" id="menu3" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu3">Text analysis</label></div>
     <div><input type="radio" id="menu4" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu4">Conclusion</label></div>
+    <div><input type="radio" id="menu5" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu5">Afterthoughts</label></div>
+    <div><input type="radio" id="menu6" class="menu-radio" name="menu-tab"        ><label class="menu-label" for="menu6">Download</label></div>
     <span id="menu-bottom"></span>
   </fieldset>
   <div id="content">
     <div class="page">
       <h1 class="center">Introduction</h1>
-      <h2 class="center">This is the project submission for the course 02467: <br> computational social science (spring)</h2>
-      <h3 class="center">Group 15: s....</h3>
-      <p>The goal of our investigation was to find out more about the entertainment industry than what is currently known by the general public.</p>
+      <h3 class="center">This is the project submission for the course 02467: <br> computational social science (spring)</h3>
+      <h3 class="center">Group 15: s233304, s214592, s204133</h3>
+      <h1 class="center">About this project</h1>
+      <p>The goal of our investigation was to find out more about the movie industry than what is currently known by the general public. 
+        This has been done by analyzing data collected from the movie database (TMDB) <a href="https://www.themoviedb.org/">https://www.themoviedb.org/</a>.
+        Data collected and analyzed includes movies and their summaries, the crews producing the movies and the actors acting in them. 
+        We aimed to explore the connections between the movies, crew and cast using a bipartite network. 
+        We aim to discover the figures who are the most diverse in genres, and how much an actor sticks to a genre.
+        Then, to get a greater understanding of the movie's natural communities, their genres, a textual analysis has been performed on this community partition.</p>
 
       <!-- <p class="right" style="--slide-from: translateX(-900px);--animation-speed:1s;">Commonly used as a test for text layout</p> -->
     </div>
     <div class="page">
       <h1>Dataset: movies</h1>
-      <p>Our datasets has been retrieved from <strong>themoviedb</strong>(<a href="https://api.themoviedb.org">api.themoviedb.org</a>) and consist of two different datasets:</p>
+      <p>Our datasets has been retrieved from <strong>themoviedb-api</strong> (<a href="https://api.themoviedb.org">api.themoviedb.org</a>) and consist of two different datasets:</p>
       <ul>
         <li>The first being the movie dataset which contains information about movies from 2000-2024 that are available in English.</li>
         <li>The second is the 'people' dataset which holds information about the cast and crew that have worked on these movies.</li>
       </ul>
       <p>These datasets can later be linked together based on the movie ID's</p>
       
-      <h3>Fetching:</h3>
+      <h2>Fetching:</h2>
       <p>For fetching our movie ID's, the following criterias had been set:</p>
       <ul>
         <li>has an ID</li>
@@ -53,16 +61,42 @@
         <li>available in the English language</li>
       </ul>
       <p>After retrieving these ID's, the full movie dataset was requested.</p>
-      <p>For our 'people' dataset, the requirement was that they had worked on a movie with an ID listed in our movie dataset.</p>
+      <p>For our 'people' dataset, the requirement was that they had worked on a movie with an ID listed in our movie dataset as well as had their own ID.</p>
 
-      <h3>Preprocessing</h3>
-      <p>After fecthing our data was done, a preprocessing was performed with these criterias:</p>
+      <h2>Preprocessing</h2>
+      <p>For our movie dataset, the following preprocessing were performed:</p>
       <ul>
-        <li>remove adult due to inconsitent info </li>
-        <li>columns which were of no interest (like backdrop, poster, homepage etc.) </li>
+        <li> remove adult field due to inconsitent info </li>
+        <li> remove fields which were of no interest (backdrop, poster, homepage etc.) </li>
+        <li> reduce redundant informations and combine fields (genres + genre-ID's, production country etc.) </li>
       </ul>
-      <p></p>
+      <p>For our people dataset:</p>
+      <ul>
+        <li> remove fields that were not interesting for our investigation (like profile_path, cast_id, etc.) </li>
+        <li> add field with movie ID's they have worked on before </li>
+        <li> combine their movie departments into one field </li>
+      </ul>
+      <p>It should also be mentioned that the cast and crew had some overlapping fields, ID's or departments which held similar data in both datasets 
+        and have been combined for this final large dataset. It can be said that the crew and cast differentiation in TMDb has not been 
+        made strict.
+      </p>
 
+      <h2>Final dataset</h2>
+      <p>The movie dataset consists of 199.897 movies and contains these major fields:</p>
+      <ul>
+        <li> title </li>
+        <li> original_language </li>
+        <li> genre </li>
+        <li> cast </li>
+        <li> crew </li>
+      </ul>
+      <p>The people dataset consist of 1.018.104 peoples and contains these major fields </p>
+      <ul>
+        <li> name </li>
+        <li> known_department </li>
+        <li> popularity </li>
+        <li> list of movie ID worked on before</li>
+      </ul>
       <!-- <div class="grid-dataset" style="--slide-from: translateX(900px); --animation-speed:0.1s;">
         <div>1</div>
         <div>2</div>
@@ -123,6 +157,25 @@
     <div class="page">
       <h1 class="center">Conclusion</h1>
       <p class="center">We deserve 12! :D</p>
+    </div>
+    <div class="page">
+      <h1 class="center">Afterthoughts</h1>
+      <p> Initially, we were also interested in investigating the role of gender in the entertainment industry. Unfortunately, this data point was very 
+        inconsistent as well, as there were ~450.000 crew members with unspecified genders. We did some random samples on these and have concluded, 
+        that not all listed as unspecified are in fact non-binary or similar. We therefore had to drop this column and also this investigation possibility.</p>
+    </div>
+    <div class="page">
+      <h1>Data download </h1>
+      <ul>
+        <li><a href="filtered_data/final_cast_data_with_movie_list.json " download>final_cast_data_with_movie_list.json </a></li>
+        <li><a href="filtered_data/final_crew_data_with_movie_list.json " download>final_crew_data_with_movie_list.json </a></li>
+        <li><a href="filtered_data/final_movie_data.json "                download>final_movie_data.json                </a></li>
+        <li><a href="filtered_data/final_people_movie_data.json "         download>final_people_movie_data.json         </a></li>
+        <li><a href="filtered_data/movie_genres.json "                    download>movie_genres.json                    </a></li>
+        <li><a href="filtered_data/production_companies.json "            download>production_companies.json            </a></li>
+        <li><a href="filtered_data/production_countries.json "            download>production_countries.json            </a></li>
+        <li><a href="filtered_data/spoken_languages.json"                 download>spoken_languages.json                </a></li>
+      </ul>
     </div>
   </div>
   <script src="script.js"></script>

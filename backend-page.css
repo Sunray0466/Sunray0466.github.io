@@ -7,6 +7,8 @@ body:has(#menu > div:nth-of-type(2) > input:checked) > #content > .page:nth-chil
 body:has(#menu > div:nth-of-type(3) > input:checked) > #content > .page:nth-child(3) > * { pointer-events: initial; animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
 body:has(#menu > div:nth-of-type(4) > input:checked) > #content > .page:nth-child(4) > * { pointer-events: initial; animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
 body:has(#menu > div:nth-of-type(5) > input:checked) > #content > .page:nth-child(5) > * { pointer-events: initial; animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
+body:has(#menu > div:nth-of-type(6) > input:checked) > #content > .page:nth-child(6) > * { pointer-events: initial; animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
+body:has(#menu > div:nth-of-type(7) > input:checked) > #content > .page:nth-child(7) > * { pointer-events: initial; animation: slide-in var(--animation-speed) ease-in-out calc(var(--delay) + var(--timing)) backwards; opacity: 1; transform: translateX(0) translateY(0); }
 
 #content {
   width: 100%;
