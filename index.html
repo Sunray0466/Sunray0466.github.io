@@ -77,7 +77,7 @@
         with weights equal to number of movies a member has worked on before, which contains a given genre. As movie can have multiple genres, 
         a lot of members have worked in a few genre once. 
         We therefore apply a threshold level of minimum 5 movies which had the same genre in before an edge can be established. </p>
-      <div class="center"><img src="imgs/graph_custom.png" alt="Bipartite graph with genre and member" width="70vw" style="object-fit: cover; aspect-ratio: 3"></div>
+      <div class="center"><img src="imgs/graph_custom.png" alt="Bipartite graph with genre and member" width="100%" style="object-fit: cover; aspect-ratio: 3/2"></div>
       <p>The graph contains in total of 55037 nodes where 55018 are members and 19 are genres. Genres can be found in the red ring 
         and members are given color based on their main genre aka. genre with highest weight. Members who only have worked with a single genre 
         are placed outside of the red ring with their corresponding genre and placed closer to the label the higher their weights are. 
@@ -86,13 +86,12 @@
       </p>
       <p>Furthermore the 10 members with highest closeness centrality scores are highlighted as squares while eigenvalue centrality members are 
         highlighted as triangles. Most of the closeness members have drama as their main genre with comedy being second.
-        The eigenvalue members are either drama or comedy, showing that these genres are also quite important for the members as well and may be why they joined the film industry. 
-        Seing that none of these members are only </p>
-      <!-- <p>By creating a random network with same edge probability, we get the following distribution over degrees:</p>
-      <div class="center"><img src="imgs/random_distribution.png" alt="Result of random distribution analysis" width="1000px"></div>
-      <p>The random distribution overlaps with our distribution at the beginning, but our distribution contains way more nodes with high degrees, indicating that members 
-        either work in different genres  </p> -->
-
+        The eigenvalue members are either drama or comedy as well, signifying the importance of these genres, both for 
+        the members and for other genres as well as the movie industry. This is further supported by checking on centrality for genres:</p>
+      <div class="center"><img src="imgs/genre_centrality.png" alt="Centrality measures for genres" width="90%"></div>
+      <p>Both the drama and comedy genre have a higher score than other genres for both centrality measures, with thriller and action behind them. 
+        One interesting observation is that the documentary genre has a high closeness score, while a low eigenvalue score. By observing the figure, 
+        the documentary genre has a lot of members who solely works for this genre compared to other genres, which is possibly why it was given such a high closeness score.</p>
     </div>
     <div class="page">
       <h1>Text analysis</h1>
