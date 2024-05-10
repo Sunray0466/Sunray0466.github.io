@@ -81,21 +81,23 @@
     </div>
     <div class="page">
       <h1>Text analysis</h1>
-      <p> Since we have summaries of each movie in the "overview" column, it is possible to perform a textual analysis on this data. 
-        We can achieve 19 different communities within the data by seperating the movies by genre, and treating all the movies in the same genre as a seperate community.
-        Since there are 11 genres with less than 1000 movies, these will be filtered out since their contribution to the inverse document frequency across the communities will be minimal.
-        This leaves 8 genres: "Comedy", "Drama", "Thriller", "Documentary", "Music", "Animation", "Horror" and "Science Fiction". </p>
-      <p> Combining and tokenizing the overviews of every movie within these genres yields a list of tokens describing the genre.
-        The tokens have been stemmed using the stemmer from the nltk python package, which uses regular expressions to filter out part of the terms.
-        Once these lists of tokens were achieved, the term frequency for each genre could be calculated, as well as the overall inverse document frequency.
-        With the term frequency and inverse document frequency in hand, it was possible to calculate TF-IDF scores for each genre.
-        In the below figure a wordcloud is shown for each genre, depicting the 10 terms within each genre with the highest TF-IDF.</p>
+      <p>Since we have summaries of each movie in the "overview" field, it is possible to perform a textual analysis on this data.
+      We can achieve 19 different communities within the data by seperating the movies by genre, and treating all the movies in the same genre as a seperate community.
+      Since there are 11 genres with less than 1000 movies, these will be filtered out since their contribution to the inverse document frequency across the communities will be minimal.
+      This leaves 8 genres: "Comedy", "Drama", "Thriller", "Documentary", "Music", "Animation", "Horror" and "Science Fiction".</p>
+      <p>Combining and tokenizing the overviews of every movie within these genres yields a list of tokens describing the genre.
+      The tokens have been stemmed using the stemmer from the nltk python package, which uses regular expressions to filter out part of the terms.
+      Once these lists of tokens were achieved, the term frequency for each genre could be calculated, as well as the overall inverse document frequency.
+      With the term frequency and inverse document frequency in hand, it was possible to calculate TF-IDF scores for each genre.
+      In the below figure a wordcloud is shown for each genre, depicting the 10 terms within each genre with the highest TF-IDF.</p>
+
       <div class="center"><img src="imgs/tf_idf_wordcloud.png" alt="Wordcloud over each movie genre" width="1000"></div>
       <p> The wordclouds showcase both the advantages and disadvantages of TF-IDF. Genres like "Comedy", "Horror" and "Science Fiction" have terms
         that are clearly descriptive of the genre to anyone who knows them. However, "Thriller" and "Documentary" are not as clear.
-        They seem to be populated by rare names in specific movies that appear many times in that single movie's specific overview, since these unique names will be very rare across all docuemnts.
-        When comparing witht the 10 terms with the highest term frequencies in "Thriller" and "Documentary", the words are no longer names, but are a lot less descriptive, with terms like "film" and "life" being the most common.
-        The TF-IDF scores clearly showcase that seperating the genres and treating each one as a seperate community is a very natural partition, but that the overviews also rely on being descrpitive of the movies, and
+        They seem to be populated by rare names in specific movies that appear many times in that single movie's specific overview, since these unique names will be very rare across all documents.
+        When comparing with the 10 terms with the highest term frequencies in "Thriller" and "Documentary", the words are no longer names, but are a lot less descriptive, with terms like "film" and "life" being the most common.
+      </p><p>
+        The TF-IDF scores clearly showcase that seperating the genres and treating each one as a seperate community is a very natural partition, but that the overviews also rely on being descripitive of the movies, and
         can be skewed heavily by having unique names appear many times within the same overview, thus resulting in a large TF-IDF score for that name.
         To define a movie clearly within a certain genre community, it is important to use descriptive terms, and avoiding the repetition of unique names and places too much.
       </p>
