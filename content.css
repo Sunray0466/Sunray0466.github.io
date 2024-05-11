@@ -1,6 +1,6 @@
-.left   { text-align: left;   }
-.center { text-align: center; }
-.right  { text-align: right;  }
+.left   { text-align: left !important;   }
+.center { text-align: center !important; }
+.right  { text-align: right !important;  }
 
 .page > h1 {
   padding: 15px;

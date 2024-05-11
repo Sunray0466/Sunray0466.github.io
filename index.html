@@ -77,7 +77,7 @@
         with weights equal to number of movies a member has worked on before, which contains a given genre. As movie can have multiple genres, 
         a lot of members have worked in a few genre once. 
         We therefore apply a threshold level of minimum 5 movies which had the same genre in before an edge can be established. </p>
-      <div class="center"><img src="imgs/graph_custom.png" alt="Bipartite graph with genre and member" width="100%" style="object-fit: cover; aspect-ratio: 3/2"></div>
+      <div class="center"><img src="imgs/graph_custom.jpg" alt="Bipartite graph with genre and member" loading="lazy" width="100%" style="object-fit: cover; aspect-ratio: 3/2"></div>
       <p>The graph contains in total of 55037 nodes where 55018 are members and 19 are genres. Genres can be found in the red ring 
         and members are given color based on their main genre aka. genre with highest weight. Members who only have worked with a single genre 
         are placed outside of the red ring with their corresponding genre and placed closer to the label the higher their weights are. 
@@ -88,7 +88,7 @@
         highlighted as triangles. Most of the closeness members have drama as their main genre with comedy being second.
         The eigenvalue members are either drama or comedy as well, signifying the importance of these genres, both for 
         the members and for other genres as well as the movie industry. This is further supported by checking on centrality for genres:</p>
-      <div class="center"><img src="imgs/genre_centrality.png" alt="Centrality measures for genres" width="90%"></div>
+      <div class="center"><img src="imgs/genre_centrality.jpg" alt="Centrality measures for genres" loading="lazy" width="90%"></div>
       <p>Both the drama and comedy genre have a higher score than other genres for both centrality measures, with thriller and action behind them. 
         One interesting observation is that the documentary genre has a high closeness score, while a low eigenvalue score. By observing the figure, 
         the documentary genre has a lot of members who solely works for this genre compared to other genres, which is possibly why it was given such a high closeness score.</p>
@@ -105,7 +105,7 @@
       With the term frequency and inverse document frequency in hand, it was possible to calculate TF-IDF scores for each genre.
       In the below figure a wordcloud is shown for each genre, depicting the 10 terms within each genre with the highest TF-IDF.</p>
 
-      <div class="center"><img src="imgs/tf_idf_wordcloud.png" alt="Wordcloud over each movie genre" width="85%"></div>
+      <div class="center"><img src="imgs/tf_idf_wordcloud.jpg" alt="Wordcloud over each movie genre" loading="lazy" width="85%"></div>
       <p> The wordclouds showcase both the advantages and disadvantages of TF-IDF. Genres like "Comedy", "Horror" and "Science Fiction" have terms
         that are clearly descriptive of the genre to anyone who knows them. However, "Thriller" and "Documentary" are not as clear.
         They seem to be populated by rare names in specific movies that appear many times in that single movie's specific overview, since these unique names will be very rare across all documents.
